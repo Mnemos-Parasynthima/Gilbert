@@ -53,11 +53,11 @@ module.exports = class HelpCommand extends Command {
         .addFields(
           {
             name: 'Fun',
-            value: `\`die\`, \`throw\``
+            value: `\`dancing\`, \`melt\`, \`throw\``
           },
           {
             name: 'Moderation',
-            value: `\`ban\`, \`help\`, \`kick\`,  \`server\`, \`ice-slash\`, \`user-info\``
+            value: `\`ban\`, \`help\`, \`ice-slash\`, \`kick\`,  \`server\`, \`user-info\``
           },
         )
 
