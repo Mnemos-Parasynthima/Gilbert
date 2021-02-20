@@ -15,7 +15,8 @@ client.on('ready', () => {
 client.registry
   .registerDefaultTypes()
   .registerGroups([
-    ['fun', 'Fun stuff']
+    ['fun', 'Fun stuff'],
+    ['mod', 'Moderation']
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({
