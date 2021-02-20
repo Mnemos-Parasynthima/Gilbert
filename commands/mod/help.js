@@ -6,7 +6,8 @@ const {
   secondStanza,
   thirdStanza,
   fourthStanza,
-  fifthStanza
+  fifthStanza,
+  sixthStanza
 } = require('../../assets/json/snowmanPoem.json');
 
 
@@ -42,10 +43,12 @@ module.exports = class HelpCommand extends Command {
     const commands = msg.client.registry.commands;
 
     if (!args) {
-      
+      const stanzas = [firstStanza, secondStanza, thirdStanza, fourthStanza, fifthStanza, sixthStanza];
+      const i = Math.floor(Math.random() * stanzas.length);
+      //console.log(`${JSON.stringify(stanzas[i])}`);
 
       embed.setTitle('Gilbert Commands')
-        .setDescription(desc[i])
+        .setDescription(stanzas[i])
         .setFooter(`Send \`${prefix} help [command name]\` for more info on a command!`)
         .addFields(
           {
@@ -69,7 +72,7 @@ module.exports = class HelpCommand extends Command {
     }
 
     const name = args.toLowerCase();
-    const command  = comands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
+    const command  = commands.get(name) || commands.find(c => c.aliases && c.aliases.includes(name));
 
     if (!command) return msg.reply('That\'s not a valid command!');
 
