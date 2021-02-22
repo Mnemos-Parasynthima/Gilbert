@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 const { Command } = require('discord.js-commando');
-const { prefix } = require('../../config.json');
 const { 
   firstStanza,
   secondStanza,
@@ -36,6 +35,7 @@ module.exports = class HelpCommand extends Command {
   }
 
   run(msg, { args }) {
+    const prefix = process.env.prefix;
     const embed = new MessageEmbed()
       .setColor('#add8e6')
       .setThumbnail(msg.client.user.displayAvatarURL())

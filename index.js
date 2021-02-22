@@ -1,11 +1,17 @@
 const { CommandoClient } = require('discord.js-commando');
 const path = require('path');
-const { token, prefix, ownerId } = require('./config.json');
 
 const client = new CommandoClient({
-  commandPrefix: prefix,
-  owner: ownerId,
+  commandPrefix: process.env.prefix,
+  owner: process.env.ownerId,
 });
+
+const http = require('http');
+
+http.createServer((req, res) => {
+  res.write("I'm alive");
+  res.end();
+}).listen(8080);
 
 client.on('ready', () => {
   console.log('Gilbert is now online.');
@@ -30,4 +36,4 @@ client.registry
   });
   client.on('error', console.error);
 
-  client.login(token);
+  client.login(process.env.token);

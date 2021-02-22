@@ -7,7 +7,7 @@ module.exports = class IceSlashCommand extends Command {
       aliases: ['purge', 'r', 'del', 'delete', 'prune'],
       group: 'mod',
       memberName: 'ice-slash',
-      description: 'Ice slash up to 99 messages',
+      description: 'Ice slash up to 100 messages',
       format: '<number>',
       throttling: {
         usages: 5,
@@ -23,17 +23,16 @@ module.exports = class IceSlashCommand extends Command {
     });
   }
 
-  run(msg, { num }) {
-    const amount = num++;
-
-    if (amount < 1 || amount > 100) {
-      return msg.reply('You need to input a number between 0 and 100!');
+  async run(msg, { num }) {
+    if (num < 1 || num > 100) {
+			return msg.reply('You need to input a number between 0 and 100!');
     } else {
-      msg.channel.bulkDelete(amount, true)
-        .catch(err => {
-          console.error(err);
-          msg.say('There was an error trying to ice slash messages in this channel!');
-        });
+      await msg.delete();
+
+      msg.channel.bulkDelete(num, true).catch(err => {
+			  console.error(err);
+			  msg.say('There was an error trying to ice slash messages in this channel!');
+		  });
     }
   }
 };
