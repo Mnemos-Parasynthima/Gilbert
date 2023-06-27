@@ -1,6 +1,6 @@
 # Gilbert-Bot
 
-Link to invite Gilbert [Invite](https://discord.com/api/oauth2/authorize?client_id=811690814363009104&permissions=3336198&scope=bot "Invite Gilbert!")
+[Invite Link](https://discord.com/api/oauth2/authorize?client_id=812886774384427089&permissions=414464863302&scope=bot%20applications.commands)
 
-TODO Commands
+Todo
   - Snowball fight (similar to deathmatch)
